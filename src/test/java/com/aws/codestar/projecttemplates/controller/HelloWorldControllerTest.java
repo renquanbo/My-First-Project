@@ -68,4 +68,17 @@ class HelloWorldControllerTest {
         assertEquals(EXPECTED_RESPONSE_VALUE, jsonObjectFromResponse.get("Output"));
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
+
+    /**
+     * Basic test to verify the result obtained when calling {@link HelloWorldController#ping} successfully.
+     */
+    @Test
+    @DisplayName("Basic test for ping")
+    void testPing() {
+        ResponseEntity responseEntity = controller.ping();
+        // Verify the response obtained matches the values we expect.
+        JSONObject jsonObjectFromResponse = new JSONObject(responseEntity.getBody().toString());
+        assertEquals("pong", jsonObjectFromResponse.get("Output"));
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+    }
 }
