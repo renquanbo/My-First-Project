@@ -30,6 +30,12 @@ public class HelloWorldController {
         return ResponseEntity.ok(createResponse(PLAIN_MESSAGE_FORMAT, "pong"));
     }
 
+    @GetMapping(value = "how-are-you", produces = "application/json")
+    public ResponseEntity howAreYou() {
+        return ResponseEntity.ok(createResponse(PLAIN_MESSAGE_FORMAT, "Good thanks. How are you?"));
+    }
+
+
     private String createResponse(String format, String name) {
         return new JSONObject().put("Output", String.format(format, name)).toString();
     }

@@ -81,4 +81,17 @@ class HelloWorldControllerTest {
         assertEquals("pong", jsonObjectFromResponse.get("Output"));
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
+
+    /**
+     * Basic test to verify the result obtained when calling {@link HelloWorldController#howAreYou} successfully.
+     */
+    @Test
+    @DisplayName("Basic test for howAreYou")
+    void testHowAreYou() {
+        ResponseEntity responseEntity = controller.howAreYou();
+        // Verify the response obtained matches the values we expect.
+        JSONObject jsonObjectFromResponse = new JSONObject(responseEntity.getBody().toString());
+        assertEquals("Good thanks. How are you?", jsonObjectFromResponse.get("Output"));
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+    }
 }
