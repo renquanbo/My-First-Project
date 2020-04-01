@@ -35,6 +35,7 @@ public class HelloWorldController {
         return ResponseEntity.ok(createResponse(PLAIN_MESSAGE_FORMAT, "Good thanks. How are you?"));
     }
 
+    // for test aws code build
 
     private String createResponse(String format, String name) {
         return new JSONObject().put("Output", String.format(format, name)).toString();
